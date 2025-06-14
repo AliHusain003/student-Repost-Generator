@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Using object</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- i am creating a student report card generator -->
+
+    <h1>Student Report Card Generator</h1>
+
+    <!-- Student Input form -->
+
+    <form action="">
+      <div class="form-detail">
+        <label for="">Enter your Name</label>
+        <input type="text" id="sname" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter your Class</label>
+        <input type="text" id="sclass" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter your Roll Number</label>
+        <input type="number" id="sroll" />
+      </div>
+
+      <h3>Enter your marks ......</h3>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter Maths Marks</label>
+        <input type="number" id="maths" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter English Marks</label>
+        <input type="number" id="english" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter Hindi Marks</label>
+        <input type="number" id="hindi" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter Computer Marks</label>
+        <input type="number" id="computer" />
+      </div>
+      <br />
+      <div class="form-detail">
+        <label for="">Enter Science Marks</label>
+        <input type="number" id="science" />
+      </div>
+
+      <input type="button" value="Generate Report Card" id="btn" onclick="ShowData()" />
+      <a href="studentReport.html">Clear</a>
+    </form>
+
+    <h3><span id="showdata"></span></h3>
+
+    <script>
+      function ShowData() {
+        // fatching data using i
+
+        var name = document.getElementById("sname").value;
+        var stdclass = document.getElementById("sclass").value;
+        var roll = document.getElementById("sroll").value;
+
+        var maths = parseInt(document.getElementById("maths").value);
+        var english = parseInt(document.getElementById("english").value);
+        var hindi = parseInt(document.getElementById("hindi").value);
+        var computer = parseInt(document.getElementById("computer").value);
+        var science = parseInt(document.getElementById("science").value);
+
+        // constructor fucntion
+
+        function Student(name, roll, stdclass, marks) {
+          this.name = name;
+          this.roll = roll;
+          this.stdclass = stdclass;
+          this.marks = marks;
+
+          this.getTotall = function () {
+            return (
+              marks.maths +
+              this.marks.english +
+              this.marks.hindi +
+              this.marks.computer +
+              this.marks.science
+            );
+          };
+
+          this.getPercentage = function () {
+            return (this.getTotall() / 500) * 100;
+          };
+
+          this.getGrade = function () {
+            let percent = this.getPercentage();
+            if (percent >= 90) {
+              return "A+";
+            } else if (percent >= 75) {
+              return "A";
+            } else if (percent >= 60) {
+              return "B";
+            } else if (percent >= 36) {
+              return "C";
+            } else {
+              return "Fail";
+            }
+          };
+        }
+
+        // object creation for constructor function
+
+        let std = new Student(name, roll, stdclass, {
+          maths: maths,
+          english: english,
+          computer: computer,
+          hindi: hindi,
+          science: science,
+        });
+
+        // show output
+
+        let output = `
+                    <table  border = "1" style="width: 67%;">
+                        <tr>
+                            <th> Name : </th> 
+                            <th> ${std.name} </th>
+                        </tr>
+                        <tr>
+                            <th> Roll No. : </th> 
+                            <th> ${std.roll} </th>
+                        </tr>
+                        <tr>
+                            <th> Class : </th> 
+                            <th> ${std.stdclass} </th>
+                        </tr>
+                        <tr>
+                            <th> Marks : </th> 
+                            <th> ${std.getTotall()} </th>
+                        </tr>
+                        <tr>
+                            <th> Percentage : </th> 
+                            <th> ${std.getPercentage().toFixed(2)}% </th>
+                        </tr>
+                        <tr>
+                            <th> Grade : </th> 
+                            <th> ${std.getGrade()} </th>
+                        </tr>
+                    </table> <br> <br>
+        `;
+
+        document.getElementById("showdata").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
