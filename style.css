@@ -1,206 +1,198 @@
-*{
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --border-color: #ddd;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html,body{
-    height: 100%;
+body {
+    background-color: #f9f9f9;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-h1{
+h1 {
     text-align: center;
-    margin-top: 1%;
-    padding-bottom: 0.2%;
-    border-bottom: 2px dotted #000;
+    margin: 20px 0;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
 }
 
-form{
-    margin-top: 2%;
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
 }
 
-.form-detail{
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.button-group {
     display: flex;
     justify-content: center;
-    margin: 5px;
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.form-detail label{
-    width: 200px;
-}
-
-.form-detail input{
-    width: 35%;
-    height: 25px;
-    padding-inline: 5px;
-    color: #000;
-    font-weight: bold;
-}
-
-h3{
-    margin-top: 4%;
-    margin-left: 25.1%;
-}
-
-#btn{
-    margin-left: 35%;
-    margin-top: 2%;
-    width: 25%;
-    padding-block: 10px;
-    letter-spacing: 1px;
-    border-radius: 10px;
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
-a{
-    text-decoration: none;
-    color: #000;
-    padding-block: 7.5px;
-    padding-inline: 10px;
-    border-radius: 10px;
-    border: 2px solid #000000;
-    margin-left: 10px;
-    background-color: #F0F0F0;
-    letter-spacing: 1px;
+#btn {
+    background-color: var(--primary-color);
+    color: white;
 }
 
+#btn:hover {
+    background-color: var(--secondary-color);
+}
 
-@media screen and (max-width:768px) {
-    h3{
-        margin-left: 19%;
+.clear-btn {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.clear-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.report-card {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--light-gray);
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
     }
-    h1{
-        font-size: 27px;
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        width: 100%;
     }
 }
 
-@media screen and  (max-width:468px) {
-    h3{
-        margin-left: 11%;
-        font-size: 16px;
-        margin-top: 45px;
-        margin-bottom: 6px;
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
     }
-    h1{
-        font-size: 19px;
-        margin-bottom: 30px;
+    
+    h2 {
+        font-size: 1.2rem;
     }
-    #btn{
-        margin-left: 26%;
-        font-size: 10px;
-        letter-spacing: 0px;
-        margin-top: 5%;
+    
+    input {
+        padding: 10px;
     }
-    a{
-        padding-block: 9.5px;
-        font-size: 10px;
-        border: 1ppx solid #000;
-        margin-top: 5%;
-    }
-    .form-detail > label{
+    
+    th, td {
+        padding: 8px 10px;
         font-size: 14px;
     }
-    .form-detail > input {
-        height: 20px;
-    }
 }
 
-
-@media screen and (max-width:368px) {
-    h3{
-        margin-left: 1%;
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
     }
-    #btn{
-        font-size: 10px;
-        word-wrap: break-word;
-        width: 32%;
-        margin-left: 24%;
+    
+    .container, .report-card {
+        padding: 0;
+        box-shadow: none;
     }
-}
-
-@media screen and (max-width:500px) {
-    h1{
-        font-size: 21px;
-        padding-bottom: 9px;
-    }    
-    h3{
-        font-size: 16px;
-        margin-left: 13%;
-        margin-top: 5.5%;
+    
+    form, .button-group {
+        display: none;
     }
-    .form-detail > label{
-        font-size: 13px;
-    }
-    form {
-        margin-top: 5%;
-    }
-    .form-detail{
-        margin: 4.5px;
-    }
-    .form-detail > input{
-        height: 20px;
-    }
-    input[type = "text"],input[type = "number"]{
-        font-size: 11px;
-    }
-    #btn{
-        font-size: 11px;
-        width: 30%;
-        margin-left: 22%;
-        margin-top: 7%;
-    }
-    a{
-        font-size: 12px;
-        padding-block: 9px;
-    }
-}
-
-@media screen and (min-width:501px) and (max-width:730px) {
-    h3{
-        margin-left: 18.5%;
-    }
-}
-
-@media screen and (max-width:640px) {
-    h3{
-        margin-left: 17%;
-        font-size: 18px;
-    }
-    h1{
-        font-size: 22px;
-    }
-    #btn{
-        font-size: 11px;
-        margin-top: 4%;
-        margin-left: 30%;
-    }
-    a{
-        font-size: 11px;
-        margin-top: 4%;
-    }
-    form{
-        margin-top: 3%;
-    }
-    .form-detail{
-        margin: 4px;
-    }
-}
-
-@media screen and (max-width:610px) {
-    h3{
-        margin-left: 16.5%;
-    }
-}
-
-@media screen and (max-width:540px) {
-    h3{
-        margin-left: 14.5%;
-    }
-    #btn{
-        letter-spacing: 0px;
-    }
-    a{
-        padding-block: 8px;
+    
+    .report-card {
+        margin-top: 0;
     }
 }
